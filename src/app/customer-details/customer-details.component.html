@@ -1,0 +1,19 @@
+
+    <div class="container">
+      <div class="card card-container">       
+          
+          <form #customer="ngForm" (ngSubmit)="adddetais()"> 
+            <h2>Enter Address Details</h2><br>
+            <input type="number" name="zipcode" class="form-control" placeholder="zipcode" id="cpwd" [(ngModel)]=c.zipcode required><br>
+              <input type="text" name="houseno"  class="form-control" placeholder="Enter houseno" required autofocus  [(ngModel)]=c.houseNo><br>
+              <input type="text" name="landmark"  class="form-control" placeholder="Enter landmark" required autofocus  [(ngModel)]=c.landmark><br>
+              
+              <input type="text" name="address" class="form-control" placeholder="address" id="pwd" [(ngModel)]=c.address required autofocus required><br>
+              <input type="number" name="phone" class="form-control" placeholder="contact number" id="cpwd" [(ngModel)]=c.contactNo required><br>
+              
+              <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">sumbit</button><br>
+          </form>
+          
+      </div>
+    </div>
+    

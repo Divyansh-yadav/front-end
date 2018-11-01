@@ -1,0 +1,48 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="!(isHandset$ | async)">
+    <mat-toolbar> <img id="profile-img" class="icon" src="assets/icon.png" ></mat-toolbar>
+    <mat-nav-list>     
+      <a mat-list-item (click)=" logout()">logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+     
+    </mat-toolbar>
+
+</mat-sidenav-content>
+  
+</mat-sidenav-container>
+
+<div class="container">
+<table>
+  <div *ngFor="let obj of sp">
+   <tr>
+  <input type="text" value={{obj.userId.userName}}>
+  <button (click)="updateStatus('Dispatch', obj.providerid)" type="submit">Dispatch </button>
+  <button (click)="updateStatus('On The Way',obj.providerid)" type="submit">On The Way </button>
+  <button (click)="updateStatus('Delievered',obj.providerid)" type="submit">Delievered </button>
+  </tr>
+  </div>
+  </table>
+  <ag-grid-angular 
+  style="width: 500px; height: 500px;" 
+  class="ag-theme-balham"
+  [rowData]="rowData" 
+  [columnDefs]="columnDefs"
+  [enableSorting]="true"
+  [enableFilter]="true"
+  >
+</ag-grid-angular>
+</div>

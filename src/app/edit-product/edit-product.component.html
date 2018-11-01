@@ -1,0 +1,44 @@
+<mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+          [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+          <mat-toolbar>Menu</mat-toolbar>
+          <mat-nav-list>
+            <a mat-list-item href="/admin">Product Details</a>
+            <a mat-list-item href="/getAllUsers">User Details</a>
+            <a mat-list-item href="/addProduct">Add Product</a>
+          </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span>OGOS</span>
+          </mat-toolbar>
+         
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+<form #updateDetails="ngForm" (ngSubmit)="updateProductDetails()"> 
+<div class="card">
+    <div class="box">
+        <div class="img">
+            <img src={{individualProduct.imageUrl}}>
+        </div>
+        <h2><br><span>{{individualProduct.productName | uppercase}}</span></h2>
+
+        <span>
+            <ul>
+                <label>Quantity</label>
+                <input type="text" class="form-control" name="quantity" value="{{individualProduct.quantity}}" [(ngModel)]=individualProduct.quantity><br>
+                <label>Price</label>
+                <input type="text" class="form-control" name="price"value="{{individualProduct.price}}" [(ngModel)]=individualProduct.price><br>
+                <label>Available</label><br>
+                <input type="text" name="isactive" value="{{individualProduct.isactive}}" [(ngModel)]=individualProduct.isactive><br><br>
+                <!-- <input type="submit" name="Update Details" (click)="updateProductDetails($event)" id="{{individualProduct.productId}}" value="Update"> -->
+                <button type="submit" type="submit">Update Details</button><br>
+
+            </ul>
+        </span>
+    </div>
+</div>
+</form>

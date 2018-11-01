@@ -1,0 +1,30 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+  <h2>Products Table</h2>
+  <input id="myInput" type="text" placeholder="Search..">
+  <br><br>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Product Name</th>
+        <th>Quantity</th>
+        <th>Price Per Item</th>
+        <th>Update Details</th>
+      </tr>
+    </thead>
+    <div *ngFor="let product of product; let i = index">
+      <tbody id="myTable">
+        <tr>
+          <td>{{i+1}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.quantity}}</td>
+          <td>{{product.price}}</td>
+          <input type="submit" name="Edit" (click)="getProductDetails($event)" id="{{product.productId}}" value="Edit">
+        </tr>
+      </tbody>
+    </div>
+  </table>
+  
